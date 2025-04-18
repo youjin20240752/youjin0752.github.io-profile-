@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>구글 앱스 스크립트로 정보 전달</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+            const bad_animal = document.getElementById('form1_bad_animal_name').value;
+            const age = document.getElementById("age").value;
+            const nick = document.getElementById("nick").value;
+            const bad1 = document.getElementById("bad1").value;
+            const bad2 = document.getElementById("bad2").value;
+
+            fetch("https://script.google.com/macros/s/AKfycbzOPTqzXB_jXo2LUX6mKlbM3eoiXlmbLZh0pgMc0c4FAx392_Ht-11lp0RNHTgvCaee/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(2)}`
+            }).then(response => {
+                alert("정보가 성공적으로 전송되었습니다!");
+            }).catch(error => {
+                alert("전송 실패: " + error.message);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2 id="form">유진's webform</h2>
+    
+    <div class="form-container">
+        <div class="left-section">
+        <fieldset>
+        <form onsubmit="submitForm(event)">
+            <br>
+            <label for="email">이메일:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="name">이름:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            더 좋아하는 동물은?<br><br>
+            <label>고양이<input type="checkbox" name="form1_animal_name" id="form1_animal_id1" value="고양이"></label><br>
+            <label>강아지<input type="checkbox" name="form1_animal_name" id="form1_animal_id2" value="강아지"></label><br>
+            <label>햄스터<input type="checkbox" name="form1_animal_name" id="form1_animal_id3" value="햄스터"></label><br>
+            <label>앵무새<input type="checkbox" name="form1_animal_name" id="form1_animal_id4" value="앵무새"></label><br>
+            <br>
+            <label for="message">하고 싶은 말:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+            <button type="submit">제출</button>
+        </form>
+        </fieldset>
+        </div>
+        <div class="right-section">
+            <fieldset>
+            <form onsubmit="submitForm_2(event)">
+                <br>
+                <label for="age">나이:</label><br>
+                <input type="text" id="age" name="age" required><br><br>
+                <label for="nick">별명:</label><br>
+                <input type="text" id="nick" name="nick" required><br><br>
+                <label for="bad">더 싫어하는 동물은?<br><br></label>
+                <input list="animal-list" id="form1_badanimal_id" name="form1_badanimal_name">
+                <datalist id="animal-list">
+                    <option id="badani1" value="비둘기">
+                    <option id="badani2" value="개구리">
+                    <option id="badani2" value="쥐">
+                </datalist>
+                <br>
+                <p>굳이 고르자면?</p>
+                <input type="radio" id="ant" name="bad1" value="bad1">
+                <label for="ant">개미</label>
+                <br>
+                <input type="radio" id="spider" name="bad2" value="bad2">
+                <label for="female">거미</label>
+                <br>
+                <br>
+                <label for="method">방법?</label>
+                <select id="method" name="method"><br>
+                    <option id="method1" value="med">퇴치제</option>
+                    <option id="method2" value="chae">파리채</option>
+                    <option id="method3" value="sae">세스코</option>
+                </select>
+                <br>
+                <br>
+                <button type="submit">제출</button>
+            </form>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>
