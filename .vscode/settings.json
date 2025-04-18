@@ -1,6 +1,0 @@
-{
-    "files.autoSave": "off",
-    "files.exclude": {
-        "**/.git": false
-    }
-}
