@@ -12,9 +12,11 @@
             const bad_animal = document.getElementById('form1_bad_animal_name').value;
             const age = document.getElementById("age").value;
             const nick = document.getElementById("nick").value;
-            const bad1 = document.getElementById("bad1").value;
-            const bad2 = document.getElementById("bad2").value;
             const method = document.getElementById("method").value;
+            const animallist = document.getElementById("animallist").value;
+            const badani1 = datalist.options;
+            const badani2 = datalist.options;
+            const badani3 = datalist.options;
             const ck1 = document.getElementById("ck1").checked? document.getElementById("ck1").value : ""
             const ck2 = document.getElementById("ck2").checked? document.getElementById("ck2").value : ""
             const ck3 = document.getElementById("ck3").checked? document.getElementById("ck3").value : ""
@@ -27,13 +29,13 @@
                 rd = document.getElementById('bad2').value;
             }
 
-            fetch("https://script.google.com/macros/s/AKfycbz1ddOwYm3qzWhE7se_VC9D_ARv_HEZMXRoOvpveoVPgnswm_3NI8u3BPOz5aXzXM67/exec", {
+            fetch("", {
                 method: "POST",
                 mode: "no-cors",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(bad2)}&ck1=${encodeURIComponent(ck1)}&ck2=${encodeURIComponent(ck2)}&ck3=${encodeURIComponent(ck3)}&ck4=${encodeURIComponent(ck4)}bad1=${encodeURIComponent(bad1)}bad2=${encodeURIComponent(bad2)}method=${encodeURIComponent(method)}`
+                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(bad2)}&ck1=${encodeURIComponent(ck1)}&ck2=${encodeURIComponent(ck2)}&ck3=${encodeURIComponent(ck3)}&ck4=${encodeURIComponent(ck4)}bad1=${encodeURIComponent(bad1)}bad2=${encodeURIComponent(bad2)}&badani1=${encodeURIComponent(badani1)}&badani2=${encodeURIComponent(badani2)}&badani3=${encodeURIComponent(badani3)}&method=${encodeURIComponent(method)}`
             }).then(response => {
                 alert("정보가 성공적으로 전송되었습니다!");
             }).catch(error => {
@@ -61,22 +63,22 @@
             <label>앵무새<input type="checkbox" name="ck4" id="ck4" value="앵무새"></label><br>
             <br>
             <label for="message">하고 싶은 말:</label><br>
-            <textarea id="message" name="message" required></textarea><br><br>
+            <textarea id="message" name="message" placeholder="메세지를 남겨주세요" required ></textarea><br><br>
             <button type="submit">제출</button>
         </form>
         </fieldset>
         </div>
         <div class="right-section">
             <fieldset>
-            <form onsubmit="submitForm(event)">
+            <form onsubmit="submitForm_2(event)">
                 <br>
                 <label for="age">나이:</label><br>
                 <input type="text" id="age" name="age" required><br><br>
                 <label for="nick">별명:</label><br>
                 <input type="text" id="nick" name="nick" required><br><br>
                 <label for="bad">더 싫어하는 동물은?<br><br></label>
-                <input list="animal-list" id="form1_badanimal_id" name="form1_badanimal_name">
-                <datalist id="animal-list">
+                <input list="animallist" id="form1_badanimal_id" name="form1_badanimal_name">
+                <datalist id="animallist">
                     <option id="badani1" value="비둘기">
                     <option id="badani2" value="개구리">
                     <option id="badani3" value="쥐">
@@ -84,10 +86,10 @@
                 <br>
                 <p>굳이 고르자면?</p>
                 <input type="radio" id="bad1" name="bad1" value="bad1">
-                <label for="ant">개미</label>
+                <label for="bad1">개미</label>
                 <br>
                 <input type="radio" id="bad2" name="bad2" value="bad2">
-                <label for="female">거미</label>
+                <label for="bad2">거미</label>
                 <br>
                 <br>
                 <label for="method">방법?</label>
