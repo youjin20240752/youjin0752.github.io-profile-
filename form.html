@@ -14,9 +14,9 @@
             const nick = document.getElementById("nick").value;
             const method = document.getElementById("method").value;
             const animallist = document.getElementById("animallist").value;
-            const badani1 = datalist.options;
-            const badani2 = datalist.options;
-            const badani3 = datalist.options;
+            const badani1 = animallist.options;
+            const badani2 = animallist.options;
+            const badani3 = animallist.options;
             const ck1 = document.getElementById("ck1").checked? document.getElementById("ck1").value : ""
             const ck2 = document.getElementById("ck2").checked? document.getElementById("ck2").value : ""
             const ck3 = document.getElementById("ck3").checked? document.getElementById("ck3").value : ""
@@ -46,7 +46,6 @@
 </head>
 <body>
     <h2 id="form">유진's webform</h2>
-    
     <div class="form-container">
         <div class="left-section">
         <fieldset>
@@ -77,7 +76,7 @@
                 <label for="nick">별명:</label><br>
                 <input type="text" id="nick" name="nick" required><br><br>
                 <label for="bad">더 싫어하는 동물은?<br><br></label>
-                <input list="animallist" id="form1_badanimal_id" name="form1_badanimal_name">
+                <input list="animallist" id="badani" name="badani">
                 <datalist id="animallist">
                     <option id="badani1" value="비둘기">
                     <option id="badani2" value="개구리">
