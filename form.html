@@ -4,30 +4,16 @@
     <title>유진's wekform</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function submitForm(event) {
+        function submitForm(event) { //분홍색 폼 영역역
             event.preventDefault();
             const email = document.getElementById("email").value;
             const name = document.getElementById("name").value;
             const message = document.getElementById("message").value;
-            const bad_animal = document.getElementById('form1_bad_animal_name').value;
-            const age = document.getElementById("age").value;
-            const nick = document.getElementById("nick").value;
-            const method = document.getElementById("method").value;
-            const animallist = document.getElementById("animallist").value;
-            const badani1 = animallist.options;
-            const badani2 = animallist.options;
-            const badani3 = animallist.options;
             const ck1 = document.getElementById("ck1").checked? document.getElementById("ck1").value : ""
             const ck2 = document.getElementById("ck2").checked? document.getElementById("ck2").value : ""
             const ck3 = document.getElementById("ck3").checked? document.getElementById("ck3").value : ""
             const ck4 = document.getElementById("ck4").checked? document.getElementById("ck4").value : ""
             const ck = ck1 + "," + ck2 + "," + ck3;
-            let rd ="";
-            if (document.getElementById('bad1').checked){
-                rd = document.getElementById('bad1').value;
-            } else if (document.getElementById('bad2').checked){
-                rd = document.getElementById('bad2').value;
-            }
 
             fetch("https://script.google.com/macros/s/AKfycbyehXTUFL1SpZV85tO5HVKUoFLU2z4tM6L3ulfNQP6Q5BYZK7PMrdNn6YnAAWVu4GaH/exec", {
                 method: "POST",
@@ -35,12 +21,42 @@
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(bad2)}&ck1=${encodeURIComponent(ck1)}&ck2=${encodeURIComponent(ck2)}&ck3=${encodeURIComponent(ck3)}&ck4=${encodeURIComponent(ck4)}bad1=${encodeURIComponent(bad1)}bad2=${encodeURIComponent(bad2)}&badani1=${encodeURIComponent(badani1)}&badani2=${encodeURIComponent(badani2)}&badani3=${encodeURIComponent(badani3)}&method=${encodeURIComponent(method)}`
+                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&ck1=${encodeURIComponent(ck1)}&ck2=${encodeURIComponent(ck2)}&ck3=${encodeURIComponent(ck3)}&ck4=${encodeURIComponent(ck4)}`
             }).then(response => {
                 alert("정보가 성공적으로 전송되었습니다!");
             }).catch(error => {
                 alert("전송 실패: " + error.message);
             });
+        }
+        function submitForm_2(event) { //파란 색 폼 영역역
+            event.preventDefault(); // 새로고침 방지
+
+            const age = document.getElementById("age").value;
+            const nick = document.getElementById("nick").value;
+            const badani = document.getElementById("badani").value;
+            const method = document.getElementById("method").value;
+
+            let rd = "";
+            if (document.getElementById("bad1").checked) {
+                rd = document.getElementById("bad1").value;
+            } else if (document.getElementById("bad2").checked) {
+                rd = document.getElementById("bad2").value;
+            }
+
+            fetch("https://script.google.com/macros/s/AKfycbyehXTUFL1SpZV85tO5HVKUoFLU2z4tM6L3ulfNQP6Q5BYZK7PMrdNn6YnAAWVu4GaH/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&badani=${encodeURIComponent(badani)}&method=${encodeURIComponent(method)}&rd=${encodeURIComponent(rd)}`,
+            })
+                .then(() => {
+                    alert("정보가 성공적으로 전송되었습니다!");
+                })
+                .catch((error) => {
+                    alert("전송 실패: " + error.message);
+                });
         }
     </script>
 </head>
@@ -49,7 +65,7 @@
     <div class="form-container">
         <div class="left-section">
         <fieldset>
-        <form onsubmit="submitForm(event)">
+        <form id="Form1" onsubmit="submitForm(event)">
             <br>
             <label for="email">이메일:</label><br>
             <input type="email" id="email" name="email" required><br><br>
@@ -69,7 +85,7 @@
         </div>
         <div class="right-section">
             <fieldset>
-            <form onsubmit="submitForm_2(event)">
+            <form id="Form2" onsubmit="submitForm_2(event)">
                 <br>
                 <label for="age">나이:</label><br>
                 <input type="text" id="age" name="age" required><br><br>
