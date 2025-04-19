@@ -4,7 +4,7 @@
     <title>유진's wekform</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function submitForm(event) { //분홍색 폼 영역역
+        function submitForm(event) { //분홍색 폼 영역
             event.preventDefault();
             const email = document.getElementById("email").value;
             const name = document.getElementById("name").value;
@@ -28,7 +28,7 @@
                 alert("전송 실패: " + error.message);
             });
         }
-        function submitForm_2(event) { //파란 색 폼 영역역
+        function submitForm_2(event) { //파란 색 폼 영역
             event.preventDefault(); // 새로고침 방지
 
             const age = document.getElementById("age").value;
@@ -65,7 +65,7 @@
     <div class="form-container">
         <div class="left-section">
         <fieldset>
-        <form id="Form1" onsubmit="submitForm(event)">
+        <form id="Form1" onsubmit="submitForm(event)"> <!-- 분홍색 폼 영역-->
             <br>
             <label for="email">이메일:</label><br>
             <input type="email" id="email" name="email" required><br><br>
@@ -85,7 +85,7 @@
         </div>
         <div class="right-section">
             <fieldset>
-            <form id="Form2" onsubmit="submitForm_2(event)">
+            <form id="Form2" onsubmit="submitForm_2(event)"> <!--파란 색 폼 영역-->
                 <br>
                 <label for="age">나이:</label><br>
                 <input type="text" id="age" name="age" required><br><br>

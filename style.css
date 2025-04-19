@@ -1,4 +1,4 @@
-body {
+body { /*index.html에 대한*/
     margin: 0;
     padding: 0;
     display: flex;
@@ -43,7 +43,7 @@ nav a:hover {
     background-color: turquoise;
 }
   
-.overview {
+.overview { /*나에 대한*/
     display: flex;
     max-width: 800px;
     width: 100%;
@@ -71,7 +71,7 @@ nav a:hover {
     font-size:20px;
     color: yellow;
 }
-.hobbies {
+.hobbies { /*취미에 대한*/
     display: flex;
     max-width: 800px;
     width: 100%;
@@ -94,7 +94,7 @@ nav a:hover {
     font-size:20px;
     color: yellow;
 }
-.like {
+.like { /*내가 좋아하는 음식에 대한*/
     display: flex;
     max-width: 800px;
     width: 100%;
@@ -117,7 +117,7 @@ nav a:hover {
     font-size:20px;
     color: yellow;
 }
-.dislike {
+.dislike { /*내가 싫어하는 음식에 대한*/
     display: flex;
     max-width: 800px;
     width: 100%;
@@ -135,7 +135,7 @@ nav a:hover {
     font-size:20px;
     color: yellow;
 }
-.animal {
+.animal { /*관심있는 동물에 대한*/
     display: flex;
     max-width: 800px;
     width: 100%;
@@ -154,7 +154,7 @@ nav a:hover {
     color: yellow;
 }
 
-.form-container {
+.form-container { /*form.html에 대한*/
     display: flex; 
     flex-direction: row;
     width: 30%;
@@ -169,35 +169,35 @@ nav a:hover {
     border-radius: 10px;
 }
   
-.left-section {
+.left-section { /*왼쪽 영역, 분홍색 영역에 대한*/
     background-color: lavenderblush;
 }
   
-.right-section {
+.right-section { /*오른쪽 영역, 파란색 영역에 대한*/
     background-color: lightcyan;
 }
 
-.me {
+.me { /*상세페이지 나에 대한*/
   display: flex;
   justify-content: center;
 }
 
-.like {
+.like { /*내가 좋아하는 음식에 대한 상세페이지*/
   display: flex;
   justify-content: center;
 }
 
-.dislike {
+.dislike { /*내가 싫어하는 음식에 대한 상세페이지*/
   display: flex;
   justify-content: center;
 }
 
-.hobbies {
+.hobbies { /*나의 취미에 대한 상세페이지*/
   display: flex;
   justify-content: center;
 }
 
-.animal {
+.animal { /*관심있는 동물에 대한 상세페이지*/
   display: flex;
   justify-content: center;
 }
