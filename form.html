@@ -14,6 +14,18 @@
             const nick = document.getElementById("nick").value;
             const bad1 = document.getElementById("bad1").value;
             const bad2 = document.getElementById("bad2").value;
+            const method = document.getElementById("method").value;
+            const ck1 = document.getElementById("ck1").checked? document.getElementById("ck1").value : ""
+            const ck2 = document.getElementById("ck2").checked? document.getElementById("ck2").value : ""
+            const ck3 = document.getElementById("ck3").checked? document.getElementById("ck3").value : ""
+            const ck4 = document.getElementById("ck4").checked? document.getElementById("ck4").value : ""
+            const ck = ck1 + "," + ck2 + "," + ck3;
+            let rd ="";
+            if (document.getElementById('bad1').checked){
+                rd = document.getElementById('bad1').value;
+            } else if (document.getElementById('bad2').checked){
+                rd = document.getElementById('bad2').value;
+            }
 
             fetch("https://script.google.com/macros/s/AKfycbz1ddOwYm3qzWhE7se_VC9D_ARv_HEZMXRoOvpveoVPgnswm_3NI8u3BPOz5aXzXM67/exec", {
                 method: "POST",
@@ -21,7 +33,7 @@
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(bad2)}`
+                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(bad2)}&ck1=${encodeURIComponent(ck1)}&ck2=${encodeURIComponent(ck2)}&ck3=${encodeURIComponent(ck3)}&ck4=${encodeURIComponent(ck4)}bad1=${encodeURIComponent(bad1)}bad2=${encodeURIComponent(bad2)}method=${encodeURIComponent(method)}`
             }).then(response => {
                 alert("정보가 성공적으로 전송되었습니다!");
             }).catch(error => {
@@ -43,10 +55,10 @@
             <label for="name">이름:</label><br>
             <input type="text" id="name" name="name" required><br><br>
             더 좋아하는 동물은?<br><br>
-            <label>고양이<input type="checkbox" name="form1_animal_name" id="form1_animal_id1" value="고양이"></label><br>
-            <label>강아지<input type="checkbox" name="form1_animal_name" id="form1_animal_id2" value="강아지"></label><br>
-            <label>햄스터<input type="checkbox" name="form1_animal_name" id="form1_animal_id3" value="햄스터"></label><br>
-            <label>앵무새<input type="checkbox" name="form1_animal_name" id="form1_animal_id4" value="앵무새"></label><br>
+            <label>고양이<input type="checkbox" name="ck1" id="ck1" value="고양이"></label><br>
+            <label>강아지<input type="checkbox" name="ck2" id="ck2" value="강아지"></label><br>
+            <label>햄스터<input type="checkbox" name="ck3" id="ck3" value="햄스터"></label><br>
+            <label>앵무새<input type="checkbox" name="ck4" id="ck4" value="앵무새"></label><br>
             <br>
             <label for="message">하고 싶은 말:</label><br>
             <textarea id="message" name="message" required></textarea><br><br>
@@ -71,10 +83,10 @@
                 </datalist>
                 <br>
                 <p>굳이 고르자면?</p>
-                <input type="radio" id="ant" name="bad1" value="bad1">
+                <input type="radio" id="bad1" name="bad1" value="bad1">
                 <label for="ant">개미</label>
                 <br>
-                <input type="radio" id="spider" name="bad2" value="bad2">
+                <input type="radio" id="bad2" name="bad2" value="bad2">
                 <label for="female">거미</label>
                 <br>
                 <br>
