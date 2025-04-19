@@ -15,13 +15,13 @@
             const bad1 = document.getElementById("bad1").value;
             const bad2 = document.getElementById("bad2").value;
 
-            fetch("https://script.google.com/macros/s/AKfycbzOPTqzXB_jXo2LUX6mKlbM3eoiXlmbLZh0pgMc0c4FAx392_Ht-11lp0RNHTgvCaee/exec", {
+            fetch("https://script.google.com/macros/s/AKfycbz1ddOwYm3qzWhE7se_VC9D_ARv_HEZMXRoOvpveoVPgnswm_3NI8u3BPOz5aXzXM67/exec", {
                 method: "POST",
                 mode: "no-cors",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(2)}`
+                body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}&bad_animal=${encodeURIComponent(bad_anmial)}&age=${encodeURIComponent(age)}&nick=${encodeURIComponent(nick)}&bad1=${encodeURIComponent(bad1)}&bad2=${encodeURIComponent(bad2)}`
             }).then(response => {
                 alert("정보가 성공적으로 전송되었습니다!");
             }).catch(error => {
